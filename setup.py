@@ -9,11 +9,6 @@ high_performance_deps = [
     'hiredis>=0.1.4'
 ]
 
-console_scripts={
-    'sonic-db-load = swsssdk:sonic_db_dump_load',
-    'sonic-db-dump = swsssdk:sonic_db_dump_load',
-}
-
 setup(
     name='swsssdk',
     version='2.0.1',
@@ -31,7 +26,12 @@ setup(
     extras_require={
         'high_perf': high_performance_deps
     },
-    entry_points={},
+    entry_points={
+        'console_scripts': [
+            'sonic-db-load = swsssdk:sonic_db_dump_load',
+            'sonic-db-dump = swsssdk:sonic_db_dump_load',
+        ],
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'Operating System :: Linux',
